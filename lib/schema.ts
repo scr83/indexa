@@ -45,10 +45,36 @@ export function buildGraph(c: Content) {
         email: SITE.email,
         founder: { '@id': personId },
         knowsLanguage: ['en', 'es', 'sr'],
+        /* The two regions, then the countries. areaServed is a factual claim
+           about where the service is offered — it is not a ranking lever, so
+           naming Bulgaria does not produce Bulgarian rankings. Chile, Denmark
+           and Australia are markets with delivered work; the Balkan entries
+           are the regional market this business is positioned for. */
         areaServed: [
           { '@type': 'Place', name: 'Europe' },
           { '@type': 'Place', name: 'Latin America' },
+          ...[
+            'RS', // Serbia
+            'BA', // Bosnia and Herzegovina
+            'ME', // Montenegro
+            'HR', // Croatia
+            'MK', // North Macedonia
+            'SI', // Slovenia
+            'RO', // Romania
+            'BG', // Bulgaria
+            'DK', // Denmark
+            'CL', // Chile
+            'AU', // Australia
+          ].map((c) => ({ '@type': 'Country', identifier: c })),
         ],
+        logo: {
+          '@type': 'ImageObject',
+          url: url('/logo-512.png'),
+          width: 512,
+          height: 512,
+        },
+        image: url('/logo-512.png'),
+        sameAs: [SITE.linkedinUrl, SITE.reportrUrl],
         address: {
           '@type': 'PostalAddress',
           addressLocality: SITE.locality,
@@ -65,6 +91,40 @@ export function buildGraph(c: Content) {
             itemOffered: { '@type': 'Service', name },
           })),
         },
+        /* The three engagement lanes, priced. These are the figures already
+           printed on the page, so putting them in the markup only makes
+           machine-readable what a visitor can already read. The scoped
+           project is a one-off minimum; the other two are monthly. */
+        makesOffer: c.work.lanes.map((lane, i) => ({
+          '@type': 'Offer',
+          name: lane.title,
+          itemOffered: { '@type': 'Service', name: lane.title, provider: { '@id': orgId } },
+          priceSpecification:
+            i === 0
+              ? {
+                  '@type': 'PriceSpecification',
+                  price: 2000,
+                  priceCurrency: 'EUR',
+                  minPrice: 2000,
+                  valueAddedTaxIncluded: false,
+                }
+              : i === 1
+                ? {
+                    '@type': 'UnitPriceSpecification',
+                    priceCurrency: 'EUR',
+                    minPrice: 1300,
+                    maxPrice: 1800,
+                    unitCode: 'MON',
+                    valueAddedTaxIncluded: false,
+                  }
+                : {
+                    '@type': 'UnitPriceSpecification',
+                    price: 2500,
+                    priceCurrency: 'EUR',
+                    unitCode: 'MON',
+                    valueAddedTaxIncluded: false,
+                  },
+        })),
       },
       {
         '@type': 'Person',
@@ -74,6 +134,7 @@ export function buildGraph(c: Content) {
         worksFor: { '@id': orgId },
         knowsLanguage: ['en', 'es', 'sr'],
         knowsAbout,
+        sameAs: [SITE.linkedinUrl],
       },
       {
         '@type': 'WebSite',

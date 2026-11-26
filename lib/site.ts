@@ -5,10 +5,8 @@ export const SITE = {
   origin: process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://indexaseo.dev',
   name: 'Indexa',
   email: 'hello@indexaseo.dev',
-  /** TODO: confirm the live Reportr URL before launch. */
   reportrUrl: 'https://reportr.agency',
-  /** TODO: add the LinkedIn company page. */
-  linkedinUrl: '#',
+  linkedinUrl: 'https://www.linkedin.com/in/scr-seo/',
   registrationNumber: '68602106',
   /* Google Search Console site verification. This is the token's value only —
      the "google-site-verification=" prefix belongs to the DNS TXT form of the
