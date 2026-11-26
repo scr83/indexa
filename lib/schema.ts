@@ -94,7 +94,7 @@ export function buildGraph(c: Content) {
 
 const orgRef = { '@id': ORG_ID };
 
-function breadcrumb(locale: Locale, trail: { name: string; id: PageId }[]) {
+export function breadcrumb(locale: Locale, trail: { name: string; id: PageId }[]) {
   return {
     '@type': 'BreadcrumbList',
     itemListElement: trail.map((t, i) => ({
@@ -106,8 +106,8 @@ function breadcrumb(locale: Locale, trail: { name: string; id: PageId }[]) {
   };
 }
 
-export function buildServiceGraph(c: Content, p: ServicePage, path: string) {
-  const pageUrl = url(path);
+export function buildServiceGraph(c: Content, p: ServicePage, pageId: PageId) {
+  const pageUrl = url(requirePath(pageId, c.locale));
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -153,6 +153,10 @@ export function buildServiceGraph(c: Content, p: ServicePage, path: string) {
           acceptedAnswer: { '@type': 'Answer', text: it.a },
         })),
       },
+      breadcrumb(c.locale, [
+        { name: SITE.name, id: 'home' },
+        { name: p.name, id: pageId },
+      ]),
     ],
   };
 }

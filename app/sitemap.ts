@@ -7,13 +7,14 @@ import { allRoutes, alternatesFor } from '@/lib/routes';
    belt-and-braces version Google recommends for small multilingual sites —
    and a single-locale page correctly carries none. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
   return allRoutes().map(({ id, path, def }) => {
     const languages = alternatesFor(id);
     return {
       url: url(path),
-      lastModified,
+      /* The page's own date from the route table, not the build time. A
+         sitemap where every entry changed at the same instant on every
+         deploy is noise a crawler learns to discount. */
+      lastModified: def.lastModified,
       changeFrequency: def.changeFrequency,
       priority: def.priority,
       ...(languages ? { alternates: { languages } } : {}),

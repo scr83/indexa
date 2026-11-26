@@ -8,7 +8,10 @@ import type { Metadata } from 'next';
 import { SITE, url } from './site';
 import { alternatesFor, canonicalFor, pathFor, type Locale, type PageId } from './routes';
 
-const OG_LOCALE: Record<Locale, string> = { en: 'en', sr: 'sr_RS' };
+/* OpenGraph wants language_TERRITORY. The site's copy is British English —
+   "localisation", "defence", "prioritised" — so en_GB is the honest value;
+   `en` alone is not a valid og:locale. */
+const OG_LOCALE: Record<Locale, string> = { en: 'en_GB', sr: 'sr_RS' };
 
 export interface PageMeta {
   title: string;

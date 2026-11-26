@@ -1,5 +1,5 @@
 import type { Content, ServicePage } from '@/content/types';
-import { requirePath, type PageId } from '@/lib/routes';
+import type { PageId } from '@/lib/routes';
 import { buildServiceGraph } from '@/lib/schema';
 import Banner from './Banner';
 import Nav from './Nav';
@@ -97,7 +97,7 @@ export default function ServicePageView({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(buildServiceGraph(c, p, requirePath(pageId, c.locale))),
+          __html: JSON.stringify(buildServiceGraph(c, p, pageId)),
         }}
       />
     </>

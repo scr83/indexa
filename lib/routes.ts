@@ -44,6 +44,15 @@ interface RouteDef {
   readonly path: Partial<Record<Locale, string>>;
   readonly priority: number;
   readonly changeFrequency: ChangeFrequency;
+  /**
+   * Date this page's content last actually changed, ISO yyyy-mm-dd.
+   *
+   * Maintained by hand on purpose. The obvious alternative — `new Date()` in
+   * the sitemap — makes all seventeen pages claim they changed at the instant
+   * of every deploy, which tells a crawler the whole site moved when a
+   * typo was fixed on one page. Bump the line you edited; leave the rest.
+   */
+  readonly lastModified: string;
 }
 
 export const ROUTES: Record<PageId, RouteDef> = {
@@ -51,29 +60,34 @@ export const ROUTES: Record<PageId, RouteDef> = {
     path: { en: '/', sr: '/sr' },
     priority: 1,
     changeFrequency: 'monthly',
+    lastModified: '2026-11-26',
   },
 
   'technical-seo': {
     path: { en: '/technical-seo', sr: '/sr/tehnicki-seo' },
     priority: 0.8,
     changeFrequency: 'monthly',
+    lastModified: '2026-11-26',
   },
   'seo-consulting': {
     path: { en: '/seo-consulting', sr: '/sr/seo-konsultant' },
     priority: 0.8,
     changeFrequency: 'monthly',
+    lastModified: '2026-11-26',
   },
   'international-seo': {
     // English only: there is no Serbian demand for international SEO.
     path: { en: '/international-seo' },
     priority: 0.8,
     changeFrequency: 'monthly',
+    lastModified: '2026-11-26',
   },
   'programmatic-seo': {
     // English only, same reason.
     path: { en: '/programmatic-seo' },
     priority: 0.7,
     changeFrequency: 'monthly',
+    lastModified: '2026-11-26',
   },
   'seo-agencija-beograd': {
     // Serbian only, and deliberately NOT a page for "SEO optimizacija":
@@ -83,27 +97,32 @@ export const ROUTES: Record<PageId, RouteDef> = {
     path: { sr: '/sr/seo-agencija-beograd' },
     priority: 0.7,
     changeFrequency: 'monthly',
+    lastModified: '2026-11-26',
   },
 
   results: {
     path: { en: '/results', sr: '/sr/rezultati' },
     priority: 0.7,
     changeFrequency: 'monthly',
+    lastModified: '2026-11-26',
   },
   'case-saas': {
     path: { en: '/results/b2b-saas-multi-market', sr: '/sr/rezultati/b2b-saas-vise-trzista' },
     priority: 0.6,
     changeFrequency: 'yearly',
+    lastModified: '2026-11-26',
   },
   'case-legal': {
     path: { en: '/results/dui-defence-law-firm', sr: '/sr/rezultati/advokatska-kancelarija' },
     priority: 0.6,
     changeFrequency: 'yearly',
+    lastModified: '2026-11-26',
   },
   'case-food': {
     path: { en: '/results/food-and-nutrition-export', sr: '/sr/rezultati/hrana-i-nutricija' },
     priority: 0.6,
     changeFrequency: 'yearly',
+    lastModified: '2026-11-26',
   },
 };
 
