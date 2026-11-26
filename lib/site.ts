@@ -2,9 +2,9 @@
 
 export const SITE = {
   /** No trailing slash. Override per environment if the domain changes. */
-  origin: process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://indexa.rs',
+  origin: process.env.NEXT_PUBLIC_SITE_ORIGIN ?? 'https://indexaseo.dev',
   name: 'Indexa',
-  email: 'hello@indexa.rs',
+  email: 'hello@indexaseo.dev',
   /** TODO: confirm the live Reportr URL before launch. */
   reportrUrl: 'https://reportr.agency',
   /** TODO: add the LinkedIn company page. */

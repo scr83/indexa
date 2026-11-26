@@ -365,13 +365,13 @@ export const en: Content = {
     h2: 'Send me the site and the problem.',
     body:
       "You'll get an honest read on whether it's a technical problem, a content problem, a competitive problem, or not a problem worth solving. If it's the last one I'll say so — that answer costs you nothing and saves us both a proposal.",
-    email: 'hello@indexa.rs',
+    email: 'hello@indexaseo.dev',
     linkedin: 'LinkedIn',
   },
 
   footer: {
     left: 'Indexa · Beograd, RS · ',
     regNumber: 'Matični broj 68602106',
-    email: 'hello@indexa.rs',
+    email: 'hello@indexaseo.dev',
   },
 };

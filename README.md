@@ -1,4 +1,4 @@
-# indexa.rs
+# indexaseo.dev
 
 Bilingual marketing site for Indexa — English at `/`, Serbian at `/sr`.
 Next.js 15 App Router, statically prerendered, deployed on Vercel.
@@ -40,9 +40,9 @@ Set in Vercel → Settings → Environment Variables:
 
 | Variable | Value |
 |---|---|
-| `NEXT_PUBLIC_SITE_ORIGIN` | `https://indexa.rs` |
+| `NEXT_PUBLIC_SITE_ORIGIN` | `https://indexaseo.dev` |
 
-It defaults to `https://indexa.rs` in `lib/site.ts`, so it is only needed if the
+It defaults to `https://indexaseo.dev` in `lib/site.ts`, so it is only needed if the
 domain changes or a preview needs absolute URLs of its own.
 
 ## Before this goes live

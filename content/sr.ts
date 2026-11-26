@@ -370,13 +370,13 @@ export const sr: Content = {
     h2: 'Pošaljite mi sajt i problem.',
     body:
       'Dobićete iskrenu procenu da li je u pitanju tehnički problem, problem sadržaja, problem konkurencije ili problem koji ne vredi rešavati. Ako je ovo poslednje, reći ću vam — taj odgovor vas ne košta ništa i obojici štedi jednu ponudu.',
-    email: 'hello@indexa.rs',
+    email: 'hello@indexaseo.dev',
     linkedin: 'LinkedIn',
   },
 
   footer: {
     left: 'Indexa · Beograd, RS · ',
     regNumber: 'Matični broj 68602106',
-    email: 'hello@indexa.rs',
+    email: 'hello@indexaseo.dev',
   },
 };
