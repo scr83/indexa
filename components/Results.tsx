@@ -21,28 +21,20 @@ export default function Results({ c }: { c: Content }) {
             const stroke = cs.inverted ? SAGE : AMBER;
             return (
               <div className="case" key={cs.title}>
-                <p className="sector">
-                  <span className="ph">{cs.sector}</span>
-                </p>
+                <p className="sector">{cs.sector}</p>
                 <svg className="spark" viewBox="0 0 240 46" preserveAspectRatio="none" aria-hidden="true">
                   <line x1="0" y1="45" x2="240" y2="45" stroke="rgba(244,241,233,.18)" strokeWidth="1" />
                   <path className="trace" d={cs.spark} fill="none" stroke={stroke} strokeWidth="2" />
                 </svg>
                 <div className="delta">
-                  <span className="from mono">
-                    <span className="ph">{cs.from}</span>
-                  </span>
+                  <span className="from mono">{cs.from}</span>
                   <span className="arw mono">→</span>
                   <span className="to mono" style={cs.inverted ? { color: SAGE } : undefined}>
-                    <CountUp from={cs.from} to={cs.to} placeholder />
+                    <CountUp from={cs.from} to={cs.to} />
                   </span>
                 </div>
-                <h3>
-                  <span className="ph">{cs.title}</span>
-                </h3>
-                <p className="basis">
-                  <span className="ph">{cs.basis}</span>
-                </p>
+                <h3>{cs.title}</h3>
+                <p className="basis">{cs.basis}</p>
               </div>
             );
           })}

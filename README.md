@@ -47,17 +47,48 @@ domain changes or a preview needs absolute URLs of its own.
 
 ## Before this goes live
 
-The red banner at the top of both pages is a deliberate guard rail. Remove
-`components/Banner.tsx` and its two call sites in `components/Page.tsx` once:
+The banner at the top of both pages is a deliberate guard rail. Remove
+`components/Banner.tsx` and its two call sites in `components/Page.tsx` once
+everything below is closed.
 
-- [ ] **Case-study figures are real.** All three cases in both `content/*.ts` are
-      invented placeholders. Anything wrapped in `className="ph"` renders with a
-      dashed red underline and must be replaced or removed.
-- [ ] **AI-answer panel figures are real**, or the panel is cut.
+- [x] **Case-study figures are real.** All three were verified against the raw
+      Search Console screenshots, not transcribed from a summary deck. See
+      "Case-study provenance" below.
+- [ ] **AI-answer panel figures are real**, or the panel is cut. This is the only
+      fabricated data left on the page — everything still wrapped in
+      `className="ph"` renders with a dashed red underline.
 - [ ] **Serbian copy reviewed by a native speaker.** See
       `indexa-sr-copy-za-pregled.md`. Apply edits to `content/sr.ts` only.
 - [ ] **`lib/site.ts`**: confirm `reportrUrl`, add `linkedinUrl`.
 - [ ] **Consulting hours** in the third lane — the figure of 16 is a placeholder.
+
+## Case-study provenance
+
+Every figure on the page traces to a Google Search Console comparison with
+**matched period lengths**, except where explicitly expressed as a monthly
+average. This matters because the section's own headline attacks percentages
+quoted without a period — the page has to survive its own standard.
+
+| Case | Source comparison | Published figure |
+|---|---|---|
+| B2B SaaS, Denmark | GSC, 6 months vs previous 6 | Impressions 584K → 885K; clicks 7.79K → 9.72K; position 18.7 → 15.2 |
+| DUI defence law firm, Chile | GSC, 6 months vs previous 6 | Position 19.8 → 8.5; impressions 9.23K → 17.9K |
+| Food & nutrition, 6 markets | Leads: first 3 months vs 10 years prior. GSC windows unequal (5 mo vs 10 mo), so impressions are published **per month**, never as totals | 0 → 4 leads; position 13.4 → 9; impressions 1,472 → 2,330 per month |
+
+Deliberately **not** published:
+
+- **CTR.** It fell in all three cases (1.3→1.1%, 3.3→2.0%, 4.9→3.6%) because
+  broader query coverage adds impressions at positions 8–20 and dilutes the
+  average. That is a real and defensible explanation, but CTR is a ratio, not a
+  result, and three cases all trending down invites a question better answered in
+  conversation than in a card. Have the answer ready.
+- **Percentage growth on the food & nutrition totals.** The underlying GSC
+  windows are 5 months against 10, which would roughly double any total-based
+  percentage. Monthly averages are used instead.
+- **Heavy machinery (Chile).** Google Ads was switched off entirely with sales
+  and organic sessions held, and position went 10.8 → 5.9 — but clicks fell 14%
+  in the matched comparison, so it is held back as a conversation piece rather
+  than a card.
 
 ## Structure
 

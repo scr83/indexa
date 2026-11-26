@@ -21,7 +21,7 @@ export const en: Content = {
   },
 
   banner:
-    'Mockup — prices are final; dashed-underlined figures in the case studies and demo panels are still placeholders and must be replaced with real, verifiable numbers before launch.',
+    'Pre-launch — case-study figures are real and verifiable against Search Console. The AI-answer panel below is still a demonstration with placeholder numbers (dashed underline) and must be replaced with tracked data or removed before launch.',
 
   nav: {
     services: 'Services',
@@ -279,29 +279,32 @@ export const en: Content = {
       '"+400% organic traffic" isn\'t a result. Four hundred percent of what, over what period, against what seasonal comparison — that\'s a result. Each engagement below shows where it started.',
     cases: [
       {
-        sector: 'B2B SaaS · 8 language markets',
-        from: '1,240',
-        to: '9,850',
-        title: 'International architecture rebuilt after an hreflang collapse',
-        basis: 'Non-English sessions per month, months 0–11. Baseline is the same period a year earlier.',
+        sector: 'B2B SaaS · Denmark · multi-market',
+        from: '584K',
+        to: '885K',
+        title: 'Search visibility rebuilt across a multi-market SaaS site',
+        basis:
+          'Impressions, six months against the previous six in Search Console. Clicks 7.79K → 9.72K over the same comparison. Average position 18.7 → 15.2.',
         spark: 'M0 40 L40 41 L72 39 L100 36 L128 28 L156 20 L188 11 L240 4',
       },
       {
-        sector: 'Regulated manufacturing · export',
-        from: '18%',
-        to: '94%',
-        title: 'Indexation recovered after a platform migration',
-        basis: 'Share of URLs indexed in Search Console across 2,100 product pages, weeks 0–7.',
-        spark: 'M0 38 L34 39 L58 37 L80 22 L108 14 L150 8 L196 5 L240 3',
+        sector: 'DUI defence law firm · regulated · Chile',
+        from: '19.8',
+        to: '8.5',
+        title: 'Off page two, onto page one — and 90% of the ad budget cut',
+        basis:
+          'Average position, six months against the previous six in Search Console. Impressions 9.23K → 17.9K. Google Ads spend reduced by 90% with client volume held.',
+        inverted: true,
+        spark: 'M0 6 L34 10 L62 9 L92 16 L124 22 L158 28 L198 33 L240 36',
       },
       {
-        sector: 'Financial services · single market',
-        from: '€4,100',
-        to: '€1,350',
-        title: 'Paid spend displaced by organic on core commercial terms',
-        basis: 'Monthly ad spend on the target keyword set, months 0–9. Lead volume held flat.',
-        inverted: true,
-        spark: 'M0 8 L38 9 L70 13 L104 18 L140 26 L176 31 L210 35 L240 37',
+        sector: 'Food & nutrition · 6 markets · 95% export revenue',
+        from: '0',
+        to: '4',
+        title: 'First leads from search in the site\'s ten-year history',
+        basis:
+          'Enquiries through the site in the first three months after the rebuild, against a baseline of zero in ten years online. Leads have continued since. Average position 13.4 → 9; monthly impressions 1,472 → 2,330.',
+        spark: 'M0 44 L48 44 L96 43 L132 38 L166 28 L196 18 L220 10 L240 4',
       },
     ],
     promptLabel: 'tracked prompt — ',

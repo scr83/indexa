@@ -21,7 +21,7 @@ export const sr: Content = {
   },
 
   banner:
-    'Mockup — cene su konačne; brojevi podvučeni isprekidanom linijom u studijama slučaja i demo panelima su još uvek placeholderi. Srpski tekst mora da pregleda izvorni govornik pre objave.',
+    'Pre objave — brojevi u studijama slučaja su stvarni i proverivi u Search Console-u. Panel sa AI odgovorima ispod je još uvek demonstracija sa izmišljenim brojevima (isprekidana linija) i mora biti zamenjen stvarnim podacima ili uklonjen. Srpski tekst takođe čeka pregled izvornog govornika.',
 
   nav: {
     services: 'Usluge',
@@ -286,29 +286,32 @@ export const sr: Content = {
       '„+400% organskog saobraćaja“ nije rezultat. Četiristo posto od čega, u kom periodu, u poređenju sa kojom sezonom — to je rezultat. Svaka saradnja ispod pokazuje odakle je krenula.',
     cases: [
       {
-        sector: 'B2B SaaS · 8 jezičkih tržišta',
-        from: '1.240',
-        to: '9.850',
-        title: 'Međunarodna arhitektura ponovo izgrađena nakon pada hreflang veza',
-        basis: 'Sesije van engleskog mesečno, meseci 0–11. Osnova je isti period godinu dana ranije.',
+        sector: 'B2B SaaS · Danska · više tržišta',
+        from: '584K',
+        to: '885K',
+        title: 'Vidljivost u pretrazi ponovo izgrađena na SaaS sajtu sa više tržišta',
+        basis:
+          'Impresije, šest meseci naspram prethodnih šest u Search Console-u. Klikovi 7,79K → 9,72K u istom poređenju. Prosečna pozicija 18,7 → 15,2.',
         spark: 'M0 40 L40 41 L72 39 L100 36 L128 28 L156 20 L188 11 L240 4',
       },
       {
-        sector: 'Regulisana proizvodnja · izvoz',
-        from: '18%',
-        to: '94%',
-        title: 'Indeksiranje oporavljeno nakon migracije platforme',
-        basis: 'Udeo URL-ova indeksiranih u Search Console-u na 2.100 stranica proizvoda, nedelje 0–7.',
-        spark: 'M0 38 L34 39 L58 37 L80 22 L108 14 L150 8 L196 5 L240 3',
+        sector: 'Advokatska kancelarija · regulisana delatnost · Čile',
+        from: '19,8',
+        to: '8,5',
+        title: 'Sa druge na prvu stranu — uz 90% manji budžet za oglase',
+        basis:
+          'Prosečna pozicija, šest meseci naspram prethodnih šest u Search Console-u. Impresije 9,23K → 17,9K. Budžet za Google oglase smanjen za 90%, uz nepromenjen broj klijenata.',
+        inverted: true,
+        spark: 'M0 6 L34 10 L62 9 L92 16 L124 22 L158 28 L198 33 L240 36',
       },
       {
-        sector: 'Finansijske usluge · jedno tržište',
-        from: '4.100 €',
-        to: '1.350 €',
-        title: 'Plaćeni budžet zamenjen organskim na ključnim komercijalnim upitima',
-        basis: 'Mesečni budžet za oglase na ciljnom skupu ključnih reči, meseci 0–9. Broj upita nepromenjen.',
-        inverted: true,
-        spark: 'M0 8 L38 9 L70 13 L104 18 L140 26 L176 31 L210 35 L240 37',
+        sector: 'Hrana i nutricionizam · 6 tržišta · 95% izvoz',
+        from: '0',
+        to: '4',
+        title: 'Prvi upiti iz pretrage za deset godina postojanja sajta',
+        basis:
+          'Upiti preko sajta u prva tri meseca nakon preuređenja, naspram osnove od nula upita za deset godina na internetu. Upiti i dalje stižu. Prosečna pozicija 13,4 → 9; mesečne impresije 1.472 → 2.330.',
+        spark: 'M0 44 L48 44 L96 43 L132 38 L166 28 L196 18 L220 10 L240 4',
       },
     ],
     promptLabel: 'praćeni upit — ',
