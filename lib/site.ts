@@ -10,6 +10,10 @@ export const SITE = {
   /** TODO: add the LinkedIn company page. */
   linkedinUrl: '#',
   registrationNumber: '68602106',
+  /* Google Search Console site verification. This is the token's value only —
+     the "google-site-verification=" prefix belongs to the DNS TXT form of the
+     same check, not to the meta tag. */
+  googleSiteVerification: 'eJlWI93qBEmhutJu2qRKMWOVItJkzufqBl-oWlIiZ1E',
   locality: 'Beograd',
   country: 'RS',
 } as const;

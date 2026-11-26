@@ -1,6 +1,5 @@
 import type { Content } from '@/content/types';
 import { buildGraph } from '@/lib/schema';
-import Banner from './Banner';
 import Nav from './Nav';
 import Hero from './Hero';
 import Approach from './Approach';
@@ -17,7 +16,6 @@ import Footer from './Footer';
 export default function Page({ c }: { c: Content }) {
   return (
     <>
-      <Banner c={c} />
       <Nav c={c} pageId="home" />
       <Hero c={c} />
       <Approach c={c} />

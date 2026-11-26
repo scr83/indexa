@@ -4,7 +4,6 @@ import { pathFor, requirePath, type PageId } from '@/lib/routes';
 import { buildCaseGraph } from '@/lib/schema';
 import { enServices } from '@/content/pages/en-services';
 import { srServices } from '@/content/pages/sr-services';
-import Banner from './Banner';
 import Nav from './Nav';
 import ProseBand from './ProseBand';
 import CaseCards from './CaseCards';
@@ -36,7 +35,6 @@ export default function CasePageView({
 
   return (
     <>
-      <Banner c={c} />
       <Nav c={c} pageId={pageId} />
 
       <div className="phero dotted">

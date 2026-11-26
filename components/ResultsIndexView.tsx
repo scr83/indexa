@@ -1,6 +1,5 @@
 import type { Content, ResultsIndexPage } from '@/content/types';
 import { buildResultsIndexGraph } from '@/lib/schema';
-import Banner from './Banner';
 import Nav from './Nav';
 import CaseCards from './CaseCards';
 import Contact from './Contact';
@@ -13,7 +12,6 @@ import Footer from './Footer';
 export default function ResultsIndexView({ c, p }: { c: Content; p: ResultsIndexPage }) {
   return (
     <>
-      <Banner c={c} />
       <Nav c={c} pageId="results" />
 
       <div className="phero dotted">

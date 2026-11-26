@@ -97,7 +97,6 @@ export interface Content {
     ogLocaleAlt: string;
   };
 
-  banner: string;
 
   nav: { services: string; multilingual: string; machine: string; work: string; results: string; cta: string };
 

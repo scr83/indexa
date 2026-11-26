@@ -20,8 +20,6 @@ export const en: Content = {
     ogLocaleAlt: 'sr_RS',
   },
 
-  banner:
-    'Pre-launch \u2014 every case-study figure and the AI-answer panel are real: exported from Google Search Console with matched comparison periods. The run log and the pipeline panel carry illustrative values (dashed underline), which demonstrate how the pipeline works rather than claiming a client result.',
 
   nav: {
     services: 'Services',

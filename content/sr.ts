@@ -20,8 +20,6 @@ export const sr: Content = {
     ogLocaleAlt: 'en',
   },
 
-  banner:
-    'Pre objave \u2014 svaka cifra u studijama slu\u010daja i panel sa AI odgovorima su stvarni: izvezeni iz Google Search Console-a, sa periodima pore\u0111enja iste du\u017eine. Izvr\u0161avanje i panel procesa nose ilustrativne vrednosti (isprekidana linija), koje pokazuju kako proces radi, a ne tvrde rezultat klijenta.',
 
   nav: {
     services: 'Usluge',

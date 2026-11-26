@@ -46,6 +46,10 @@ export function buildMetadata(id: PageId, locale: Locale, m: PageMeta): Metadata
       ...(hasOther ? { alternateLocale: [OG_LOCALE[other]] } : {}),
     },
     twitter: { card: 'summary_large_image' },
+    /* Emitted on every page rather than the home page alone: Search Console
+       checks the exact URL being verified, and a property added later for a
+       subdirectory should not need another deploy. */
+    verification: { google: SITE.googleSiteVerification },
   };
 }
 

@@ -1,7 +1,6 @@
 import type { Content, ServicePage } from '@/content/types';
 import type { PageId } from '@/lib/routes';
 import { buildServiceGraph } from '@/lib/schema';
-import Banner from './Banner';
 import Nav from './Nav';
 import SubpageHero from './SubpageHero';
 import ProseBand from './ProseBand';
@@ -28,7 +27,6 @@ export default function ServicePageView({
 
   return (
     <>
-      <Banner c={c} />
       <Nav c={c} pageId={pageId} />
 
       <SubpageHero
