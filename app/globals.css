@@ -88,7 +88,13 @@
   .link{flex:1;min-width:24px;height:1px;background:linear-gradient(to right,rgba(244,241,233,.3),rgba(244,241,233,.12));margin:0 14px}
 
   /* ---------- sections ---------- */
-  .pad{padding:92px 0}
+  /* Vertical only. The `padding` shorthand here used to reset all four
+     sides, which silently cancelled .wrap's own `padding:0 40px` — both are
+     single-class selectors, so the later rule won. The effect was invisible
+     above ~1240px, where the side gutter comes from max-width centring
+     rather than from padding, and the content sat flush against the screen
+     edge at every width below that. */
+  .pad{padding-top:92px;padding-bottom:92px}
   .stone{background:var(--stone)}
   .ivory{background:var(--ivory)}
   .dark{background:var(--petrol);color:var(--cream)}
@@ -257,7 +263,14 @@
   .close .btn-oncream:hover,.close .btn-oncream:focus-visible{border-color:#fff;background:rgba(255,255,255,.1)}
 
   footer{background:var(--petrol);color:var(--cream-3);padding:30px 0;font-size:13.5px}
-  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .foot-right{display:flex;align-items:center;gap:20px}
+  .foot-social{display:flex;align-items:center;gap:14px}
+  /* 40px of hit area around a 17px glyph: the icon is the visual, the touch
+     target is the padding around it. Below that, a thumb misses. */
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;
+    width:40px;height:40px;margin:-11px;color:var(--cream-3);transition:color .16s}
+  .foot-social a:hover,.foot-social a:focus-visible{color:var(--amber)}
 
   .ph{border-bottom:1px dashed var(--brick)}
   .dark .ph,.case .ph,.panel-foot .ph,.aep .ph,.matrix .ph{border-bottom-color:var(--brick-light)}
@@ -289,8 +302,24 @@
   @media (max-width:1000px){
     .hero-grid,.tool,.machine,.ml{grid-template-columns:1fr;gap:34px}
     .lanes,.cases,.aep-rows,.band,.dirs{grid-template-columns:1fr}
-    .tiles{grid-template-columns:repeat(2,1fr)}
-    .band{gap:22px}
+    /* Below the desktop breakpoint the tiles stop being cards. Twenty-four
+       bordered boxes is a wall at any width under 1000px — two columns of
+       them at tablet size was the tallest the section ever got. The band's
+       accent colour moves from each card's top edge to one rule down the
+       left of the group, the index sits inline with its label instead of
+       above it, and the chrome goes. Same content, same order, and it reads
+       as a spec sheet — which suits a section arguing these are the floor
+       and not the pitch. The four-column card grid is desktop only. */
+    .tiles{grid-template-columns:repeat(2,1fr);gap:0 26px;border-left:2px solid #C4C4B9}
+    .band.diff .tiles{border-left-color:var(--sage)}
+    .band.eng .tiles{border-left-color:var(--amber)}
+    .tile{background:none;border:none;border-bottom:1px solid var(--rule-l);
+      min-height:0;padding:10px 0 10px 14px;
+      display:flex;flex-direction:row;align-items:baseline;gap:11px}
+    .tile:hover{background:none}
+    .tile .ix{flex:0 0 auto;font-size:10.5px}
+    .tile .lb{margin-top:0;padding-top:0;font-size:15px;line-height:1.38}
+    .band{gap:16px;padding:26px 0 30px}
     .lane{border-right:none;border-bottom:1px solid var(--rule-l)}
     .aep-row{border-right:none;border-bottom:1px solid var(--rule-d)}
     .sec-head{grid-template-columns:1fr;gap:14px}
@@ -299,13 +328,12 @@
   }
   @media (max-width:640px){
     .wrap{padding:0 20px}
-    .pad{padding:60px 0}
+    .pad{padding-top:60px;padding-bottom:60px}
     .hero{padding:52px 0 0}
     .strip{margin-top:42px}
     table.cmp{font-size:15px} table.cmp td{padding:15px 14px}
     .cap{grid-template-columns:1fr;gap:4px}
     .tiles{grid-template-columns:1fr}
-    .tile{min-height:0}
   }
 
 /* ---------- AI visibility panel ---------- */

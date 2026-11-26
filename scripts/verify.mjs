@@ -136,11 +136,29 @@ const note = (ok, msg) => { if (!ok) fail.push(msg); };
     const hrefs = await page.$$eval('a[href^="/"]', (as) => as.map((a) => a.getAttribute('href')));
     hrefs.forEach((h) => allLinks.add(h.split('#')[0] || '/'));
 
-    // horizontal overflow at several widths
-    for (const w of [1440, 1024, 768, 375]) {
+    /* Overflow and side gutter at several widths. The gutter check exists
+       because `.pad{padding:92px 0}` — a shorthand — silently cancelled
+       `.wrap`'s own `padding:0 40px`, and content sat flush against the
+       screen edge at every width under ~1240px. Nothing overflowed, so an
+       overflow-only check saw a healthy page. */
+    for (const w of [1440, 1240, 1100, 1024, 768, 414, 375]) {
       await page.setViewportSize({ width: w, height: 900 });
       const over = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
       note(!over, `${route}: horizontal scroll at ${w}px`);
+
+      const flush = await page.evaluate(() => {
+        const bad = [];
+        document.querySelectorAll('section, footer, .phero').forEach((s) => {
+          /* Measure something that holds text, never the padded wrapper
+             itself: a .wrap sits at x=0 with its gutter on the inside. */
+          const h = s.querySelector('.sec-label, h1, h2, .foot > span');
+          if (!h) return;
+          const left = Math.round(h.getBoundingClientRect().left);
+          if (left < 16) bad.push(`${s.id || s.tagName.toLowerCase()}@${left}px`);
+        });
+        return bad;
+      });
+      note(flush.length === 0, `${route}: content flush to the edge at ${w}px — ${flush.join(' ')}`);
     }
     await page.setViewportSize({ width: 1440, height: 900 });
 
