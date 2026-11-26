@@ -7,6 +7,7 @@ export const SITE = {
   email: 'hello@indexaseo.dev',
   reportrUrl: 'https://reportr.agency',
   linkedinUrl: 'https://www.linkedin.com/in/scr-seo/',
+  githubUrl: 'https://github.com/scr83',
   registrationNumber: '68602106',
   /* Google Search Console site verification. This is the token's value only —
      the "google-site-verification=" prefix belongs to the DNS TXT form of the

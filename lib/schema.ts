@@ -135,7 +135,7 @@ export function buildGraph(c: Content) {
         worksFor: { '@id': orgId },
         knowsLanguage: ['en', 'es', 'sr'],
         knowsAbout,
-        sameAs: [SITE.linkedinUrl],
+        sameAs: [SITE.linkedinUrl, SITE.githubUrl],
         /* The site's whole argument is that this work is engineering rather
            than marketing. alumniOf and hasCredential are what turn that from
            an adjective into a property a machine can check against a real
