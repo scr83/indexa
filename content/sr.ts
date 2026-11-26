@@ -200,8 +200,8 @@ export const sr: Content = {
       changeSet: 'skup izmena',
       modelAssisted: 'uz pomoć modela',
       everyChange: 'svaka izmena',
-      withRepo: 'sa pristupom kodu',
-      withoutRepo: 'bez pristupa kodu',
+      withRepo: 'sa pristupom',
+      withoutRepo: 'bez pristupa',
       caption: 'pokreće se u 03:00 UTC · ništa ne stiže na sajt bez pregleda',
     },
     logRun: 'izvršavanje',
@@ -256,8 +256,8 @@ export const sr: Content = {
         desc:
           'Preuzimamo organsku pretragu i nastavljamo da je vodimo — strategija, tehnički posao, pravac sadržaja i sama implementacija, iz meseca u mesec. Nema predaje, jer nema ni kraja.',
         chips: ['Blokovi 01–03', 'Noćno praćenje', 'Više tržišta', 'Izveštaj o prihodu'],
-        price: 'od 1.300 €',
-        unit: 'mesečno · minimum šest meseci',
+        price: '1.300–1.800 €',
+        unit: 'mesečno · minimum dvanaest meseci',
       },
       {
         title: 'Vodimo vaš tim',

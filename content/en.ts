@@ -249,8 +249,8 @@ export const en: Content = {
         desc:
           "We own organic search and keep owning it — strategy, technical work, content direction and the implementation itself, month after month. No handover, because there's no end.",
         chips: ['Blocks 01–03', 'Nightly monitoring', 'Multi-market', 'Revenue reporting'],
-        price: 'from €1,300',
-        unit: 'per month · six-month minimum',
+        price: '€1,300–1,800',
+        unit: 'per month · twelve-month minimum',
       },
       {
         title: 'We guide your team',

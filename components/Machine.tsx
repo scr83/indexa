@@ -72,12 +72,12 @@ export default function Machine({ c }: { c: Content }) {
               </g>
 
               <g stroke="#CECEC4" strokeWidth="1.3" fill="none" markerEnd="url(#ar2)">
-                <path d="M184 52 L218 52" />
-                <path d="M184 118 L218 118" />
-                <path d="M184 184 L218 184" />
-                <path d="M406 52 L420 52 L420 118 L448 118" />
-                <path d="M406 118 L448 118" />
-                <path d="M406 184 L420 184 L420 118 L448 118" />
+                <path d="M184 52 L214 52" />
+                <path d="M184 118 L214 118" />
+                <path d="M184 184 L214 184" />
+                <path d="M414 52 L428 52 L428 118 L448 118" />
+                <path d="M414 118 L448 118" />
+                <path d="M414 184 L428 184 L428 118 L448 118" />
                 <path d="M556 104 L584 104" />
                 <path d="M556 132 L570 132 L570 178 L584 178" />
               </g>
@@ -93,30 +93,30 @@ export default function Machine({ c }: { c: Content }) {
                   <rect x="16" y="166" width="168" height="36" fill="#F1F0EA" stroke="#CECEC4" />
                   <text x="30" y="189" fill="#4A5A5D">{d.logs}</text>
 
-                  <rect x="218" y="34" width="188" height="36" fill="#FFF4E2" stroke="#DDA34A" />
-                  <text x="232" y="57" fill="#8A5A14">{d.parse}</text>
+                  <rect x="214" y="34" width="200" height="36" fill="#FFF4E2" stroke="#DDA34A" />
+                  <text x="228" y="57" fill="#8A5A14">{d.parse}</text>
 
-                  <rect x="218" y="100" width="188" height="36" fill="#FFF4E2" stroke="#DDA34A" />
-                  <text x="232" y="123" fill="#8A5A14">{d.diff}</text>
+                  <rect x="214" y="100" width="200" height="36" fill="#FFF4E2" stroke="#DDA34A" />
+                  <text x="228" y="123" fill="#8A5A14">{d.diff}</text>
 
-                  <rect x="218" y="166" width="188" height="36" fill="#FFF4E2" stroke="#DDA34A" />
-                  <text x="232" y="189" fill="#8A5A14">{d.entities}</text>
+                  <rect x="214" y="166" width="200" height="36" fill="#FFF4E2" stroke="#DDA34A" />
+                  <text x="228" y="189" fill="#8A5A14">{d.entities}</text>
 
                   <rect x="448" y="90" width="108" height="56" fill="#E8F0EB" stroke="#8FB6A4" strokeWidth="1.6" />
                   <text x="462" y="113" fill="#2F5F4C">{d.reviewA}</text>
                   <text x="462" y="130" fill="#2F5F4C">{d.reviewB}</text>
 
                   <rect x="584" y="86" width="104" height="36" fill="#102A2E" />
-                  <text x="598" y="109" fill="#F4F1E9">{d.pr}</text>
+                  <text x="592" y="109" fill="#F4F1E9">{d.pr}</text>
 
                   <rect x="584" y="160" width="104" height="36" fill="#F1F0EA" stroke="#CECEC4" />
-                  <text x="598" y="183" fill="#4A5A5D">{d.changeSet}</text>
+                  <text x="592" y="183" fill="#4A5A5D">{d.changeSet}</text>
                 </g>
                 <g fontSize="10" fill="#9A9A8F">
-                  <text x="232" y="86">{d.modelAssisted}</text>
+                  <text x="228" y="86">{d.modelAssisted}</text>
                   <text x="462" y="162">{d.everyChange}</text>
-                  <text x="598" y="137">{d.withRepo}</text>
-                  <text x="598" y="211">{d.withoutRepo}</text>
+                  <text x="592" y="137">{d.withRepo}</text>
+                  <text x="592" y="211">{d.withoutRepo}</text>
                 </g>
               </g>
 
