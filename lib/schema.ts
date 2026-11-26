@@ -4,6 +4,7 @@ import { requirePath, type Locale, type PageId } from './routes';
 
 const ORG_ID = `${SITE.origin}/#organization`;
 const PERSON_ID = `${SITE.origin}/#sebastian`;
+const UNIVERSITY_ID = `${SITE.origin}/#uv`;
 
 /* JSON-LD graph. Kept in one place so the EN and SR pages can't drift apart,
    and so the @id values stay stable across locales — the Organization and
@@ -135,6 +136,34 @@ export function buildGraph(c: Content) {
         knowsLanguage: ['en', 'es', 'sr'],
         knowsAbout,
         sameAs: [SITE.linkedinUrl],
+        /* The site's whole argument is that this work is engineering rather
+           than marketing. alumniOf and hasCredential are what turn that from
+           an adjective into a property a machine can check against a real
+           institution — the one claim on the page with an external referent. */
+        alumniOf: { '@id': UNIVERSITY_ID },
+        hasCredential: {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Ingeniería Civil',
+          /* Left in Spanish on purpose. Chile's "Ingeniería Civil" is a
+             six-year professional engineering degree, not the construction
+             discipline that "civil engineering" names in English or
+             "građevinarstvo" in Serbian; translating it would misstate it. */
+          credentialCategory: 'degree',
+          educationalLevel: 'Professional degree',
+          recognizedBy: { '@id': UNIVERSITY_ID },
+        },
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        '@id': UNIVERSITY_ID,
+        name: 'Universidad de Valparaíso',
+        url: 'https://www.uv.cl',
+        sameAs: 'https://www.uv.cl',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Valparaíso',
+          addressCountry: 'CL',
+        },
       },
       {
         '@type': 'WebSite',
