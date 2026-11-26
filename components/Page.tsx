@@ -18,7 +18,7 @@ export default function Page({ c }: { c: Content }) {
   return (
     <>
       <Banner c={c} />
-      <Nav c={c} />
+      <Nav c={c} pageId="home" />
       <Hero c={c} />
       <Approach c={c} />
       <Services c={c} />

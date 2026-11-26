@@ -1,29 +1,24 @@
 import type { MetadataRoute } from 'next';
 import { SITE, url } from '@/lib/site';
+import { allRoutes, alternatesFor } from '@/lib/routes';
 
-/* Both locales, each declaring the full alternates set. A sitemap that
-   repeats the hreflang pairs is the belt-and-braces version Google
-   actually recommends for small multilingual sites. */
+/* Derived entirely from lib/routes.ts, so a new page appears here the moment
+   it is declared there. Each entry repeats its hreflang pairs — the
+   belt-and-braces version Google recommends for small multilingual sites —
+   and a single-locale page correctly carries none. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const languages = { en: url('/'), sr: url('/sr') };
   const lastModified = new Date();
 
-  return [
-    {
-      url: url('/'),
+  return allRoutes().map(({ id, path, def }) => {
+    const languages = alternatesFor(id);
+    return {
+      url: url(path),
       lastModified,
-      changeFrequency: 'monthly',
-      priority: 1,
-      alternates: { languages },
-    },
-    {
-      url: url('/sr'),
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-      alternates: { languages },
-    },
-  ];
+      changeFrequency: def.changeFrequency,
+      priority: def.priority,
+      ...(languages ? { alternates: { languages } } : {}),
+    };
+  });
 }
 
 export const dynamic = 'force-static';

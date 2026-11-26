@@ -1,10 +1,12 @@
 import type { Content } from '@/content/types';
-import CountUp from './CountUp';
+import { AI_CHART_PATH } from '@/content/aiChart';
+import CaseCards from './CaseCards';
 
 const AMBER = '#DDA34A';
-const SAGE = '#8FB6A4';
 
 export default function Results({ c }: { c: Content }) {
+  const ai = c.results.ai;
+
   return (
     <section id="results" className="dark dotted">
       <div className="wrap pad">
@@ -16,59 +18,52 @@ export default function Results({ c }: { c: Content }) {
           </div>
         </div>
 
-        <div className="cases">
-          {c.results.cases.map((cs) => {
-            const stroke = cs.inverted ? SAGE : AMBER;
-            return (
-              <div className="case" key={cs.title}>
-                <p className="sector">{cs.sector}</p>
-                <svg className="spark" viewBox="0 0 240 46" preserveAspectRatio="none" aria-hidden="true">
-                  <line x1="0" y1="45" x2="240" y2="45" stroke="rgba(244,241,233,.18)" strokeWidth="1" />
-                  <path className="trace" d={cs.spark} fill="none" stroke={stroke} strokeWidth="2" />
-                </svg>
-                <div className="delta">
-                  <span className="from mono">{cs.from}</span>
-                  <span className="arw mono">→</span>
-                  <span className="to mono" style={cs.inverted ? { color: SAGE } : undefined}>
-                    <CountUp from={cs.from} to={cs.to} />
-                  </span>
-                </div>
-                <h3>{cs.title}</h3>
-                <p className="basis">{cs.basis}</p>
-              </div>
-            );
-          })}
-        </div>
+        <CaseCards cases={c.results.cases} cta={c.results.caseCta} locale={c.locale} />
 
-        <div className="aep">
-          <div className="aep-bar">
-            <span className="q mono">
-              {c.results.promptLabel}
-              <b>
-                <span className="ph">{c.results.promptText}</span>
-              </b>
+        {/* Exported Search Console data for one engagement. The footnote
+            stating what Search Console does not cover is load-bearing: it is
+            the reason this panel is worth more than a bar chart of guesses. */}
+        <div className="ai">
+          <div className="ai-bar">
+            <span className="src mono">
+              <b>{ai.sourceBold}</b>
+              {ai.source}
             </span>
-            <span className="tag mono">
-              {c.results.promptTag}
-              <span className="ph">{c.locale === 'en' ? '90 days' : '90 dana'}</span>
-            </span>
+            <span className="beta mono">{ai.beta}</span>
+            <span className="who mono">{ai.who}</span>
           </div>
-          <div className="aep-rows">
-            {c.results.engines.map((e) => (
-              <div className="aep-row" key={e.name}>
-                <div className="eng mono">{e.name}</div>
-                <div className="bar">
-                  <i className={e.sage ? 'sg' : undefined} style={{ ['--w' as string]: `${e.pct}%` }} />
+          <div className="ai-grid">
+            {/* These figures are static on purpose. "180 → 858" is two
+                numbers in one string, and a counter that animates only the
+                first reads as a bug. The case cards carry the movement. */}
+            <div className="ai-stat">
+              {ai.stats.map((s) => (
+                <div className="row" key={s.big}>
+                  <span className="big mono">{s.big}</span>
+                  <span className="unit">{s.unit}</span>
                 </div>
-                <div className="fig mono">
-                  <CountUp from={e.prior} to={e.share} placeholder />{' '}
-                  <small>
-                    {c.results.fromWord} <span className="ph">{e.prior}</span>
-                  </small>
-                </div>
+              ))}
+            </div>
+            <div className="ai-chart">
+              <svg viewBox="0 0 600 118" preserveAspectRatio="none" role="img" aria-label={ai.chartLabel}>
+                <line x1="0" y1="108" x2="600" y2="108" stroke="rgba(244,241,233,.18)" strokeWidth="1" />
+                <path
+                  className="trace"
+                  d={AI_CHART_PATH}
+                  fill="none"
+                  stroke={AMBER}
+                  strokeWidth="1.4"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <div className="xs mono">
+                {ai.axis.map((a) => (
+                  <span key={a}>{a}</span>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
+          <div className="ai-foot">{ai.foot}</div>
         </div>
       </div>
     </section>

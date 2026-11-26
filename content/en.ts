@@ -21,7 +21,7 @@ export const en: Content = {
   },
 
   banner:
-    'Pre-launch — case-study figures are real and verifiable against Search Console. The AI-answer panel below is still a demonstration with placeholder numbers (dashed underline) and must be replaced with tracked data or removed before launch.',
+    'Pre-launch \u2014 every case-study figure and the AI-answer panel are real: exported from Google Search Console with matched comparison periods. The run log and the pipeline panel carry illustrative values (dashed underline), which demonstrate how the pipeline works rather than claiming a client result.',
 
   nav: {
     services: 'Services',
@@ -84,6 +84,7 @@ export const en: Content = {
     bands: [
       {
         tier: '01 · the floor',
+        pageId: 'technical-seo',
         title: 'SEO fundamentals',
         note:
           'Included in every engagement. Done properly, measured honestly, and never presented as the reason to hire anyone.',
@@ -100,6 +101,7 @@ export const en: Content = {
       },
       {
         tier: '02 · the specialism',
+        pageId: 'international-seo',
         title: 'Search across language markets',
         note:
           'English, Spanish and Serbian handled directly — not translated and hoped for. The part most agencies quietly decline.',
@@ -116,6 +118,7 @@ export const en: Content = {
       },
       {
         tier: '03 · the engineering',
+        pageId: 'programmatic-seo',
         title: 'Automation and tooling',
         note:
           'The work that needs someone who can both diagnose the problem and build the thing that fixes it.',
@@ -131,6 +134,7 @@ export const en: Content = {
         ],
       },
     ],
+    bandCta: 'Read about this',
   },
 
   multilingual: {
@@ -254,6 +258,7 @@ export const en: Content = {
       },
       {
         title: 'We guide your team',
+        pageId: 'seo-consulting',
         who: 'You have people, you need direction',
         shape: 'ONGOING · RENEWS MONTHLY',
         barSelf: 28,
@@ -270,6 +275,7 @@ export const en: Content = {
         unitPlaceholder: true,
       },
     ],
+    laneCta: 'More on consulting',
   },
 
   results: {
@@ -279,6 +285,7 @@ export const en: Content = {
       '"+400% organic traffic" isn\'t a result. Four hundred percent of what, over what period, against what seasonal comparison — that\'s a result. Each engagement below shows where it started.',
     cases: [
       {
+        id: 'case-saas',
         sector: 'B2B SaaS · Denmark · multi-market',
         from: '584K',
         to: '885K',
@@ -288,6 +295,7 @@ export const en: Content = {
         spark: 'M0 40 L40 41 L72 39 L100 36 L128 28 L156 20 L188 11 L240 4',
       },
       {
+        id: 'case-legal',
         sector: 'DUI defence law firm · regulated · Chile',
         from: '19.8',
         to: '8.5',
@@ -298,24 +306,35 @@ export const en: Content = {
         spark: 'M0 6 L34 10 L62 9 L92 16 L124 22 L158 28 L198 33 L240 36',
       },
       {
+        id: 'case-food',
         sector: 'Food & nutrition · 6 markets · 95% export revenue',
         from: '0',
         to: '4',
         title: 'First leads from search in the site\'s ten-year history',
         basis:
-          'Enquiries through the site in the first three months after the rebuild, against a baseline of zero in ten years online. Leads have continued since. Average position 13.4 → 9; monthly impressions 1,472 → 2,330.',
+          'Enquiries through the site in the first three months after the rebuild, against a baseline of zero in ten years online. Leads have continued since. Average position 13.4 at baseline, 4.7 today; monthly impressions 1,472 → 2,330.',
         spark: 'M0 44 L48 44 L96 43 L132 38 L166 28 L196 18 L220 10 L240 4',
       },
     ],
-    promptLabel: 'tracked prompt — ',
-    promptText: '"best supplier for <category> in the EU"',
-    promptTag: 'share of answers citing the client · ',
-    fromWord: 'from',
-    engines: [
-      { name: 'ChatGPT', share: '68%', prior: '11%', pct: 68 },
-      { name: 'Google AI Overviews', share: '52%', prior: '0%', pct: 52 },
-      { name: 'Perplexity', share: '81%', prior: '24%', pct: 81, sage: true },
-    ],
+    caseCta: 'Read the full case',
+    ai: {
+      sourceBold: 'Google Search Console',
+      source: ' — generative AI features',
+      beta: 'BETA',
+      who: 'same engagement as case 01 · client anonymised',
+      stats: [
+        { big: '74,202', unit: "impressions inside Google's AI answers, 25 May – 24 Nov 2026" },
+        { big: '180 \u2192 858', unit: 'per day, first thirty days against the last thirty' },
+        {
+          big: '94.7%',
+          unit: "of those appearances outside the client's home market, across 207 countries",
+        },
+      ],
+      chartLabel:
+        "Daily impressions in Google's generative AI features across 184 days: around 180 a day through the summer, rising from late September to around 858 a day by late November.",
+      axis: ['25 May', 'late Sept \u2014 the shift', '24 Nov 2026'],
+      foot: "Search Console reports appearances in Google's AI Overviews and AI Mode only \u2014 it says nothing about ChatGPT or Perplexity, and neither does this chart. Every point above is one day of exported Search Console data, not an estimate.",
+    },
   },
 
   tools: {

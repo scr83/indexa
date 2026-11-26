@@ -309,5 +309,113 @@
     .tile{min-height:0}
   }
 
+/* ---------- AI visibility panel ---------- */
+.ai{margin-top:26px;border:1px solid var(--rule-d);background:var(--petrol-2)}
+.ai-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--rule-d);background:rgba(0,0,0,.16)}
+.ai-bar .src{font-size:13px;color:var(--cream-2)}
+.ai-bar .src b{color:#FCFAF4;font-weight:500}
+.ai-bar .beta{font-size:10px;letter-spacing:.09em;border:1px solid rgba(221,163,74,.4);color:var(--amber);padding:3px 7px}
+.ai-bar .who{margin-left:auto;font-size:11px;letter-spacing:.04em;color:var(--cream-3)}
+.ai-grid{display:grid;grid-template-columns:248px 1fr}
+.ai-stat{padding:22px;border-right:1px solid var(--rule-d);display:flex;flex-direction:column;gap:20px}
+.ai-stat .row + .row{padding-top:18px;border-top:1px solid var(--rule-d)}
+.ai-stat .big{display:block;font-size:30px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--amber)}
+.ai-stat .unit{display:block;font-size:12.5px;color:var(--cream-2);margin-top:8px;line-height:1.4}
+.ai-stat .row:first-child .big{font-size:38px}
+.ai-chart{padding:20px 22px 16px;display:flex;flex-direction:column;justify-content:center}
+.ai-chart svg{display:block;width:100%;height:auto}
+.ai-chart .xs{display:flex;justify-content:space-between;font-size:11px;color:var(--cream-3);margin-top:8px}
+.ai-foot{border-top:1px solid var(--rule-d);padding:14px 18px;font-size:13.5px;color:var(--cream-2);line-height:1.5}
+@media (prefers-reduced-motion:no-preference){
+.ai-chart path.trace{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw3 1.8s ease .4s forwards}
+@keyframes draw3{to{stroke-dashoffset:0}}
+}
+@media (max-width:1000px){ .ai-grid{grid-template-columns:1fr} .ai-stat{border-right:none;border-bottom:1px solid var(--rule-d)} }
+
+  /* ---------- grid shrink floors ---------- */
+  /* A grid item defaults to min-width:auto, so one unbreakable string sets a
+     floor under its whole track and pushes the page into horizontal scroll.
+     The Serbian run-log lines are longer than the English ones and did
+     exactly that at 375px: .log measured 419px inside a 375px viewport, and
+     .dag inherited the blown-out track. The per-element overflow rules
+     (.lg, .code) only take effect once the track is allowed to shrink. */
+  .hero-grid > *,.phero-grid > *,.machine > *,.tool > *,.ml > *{min-width:0}
+
+  /* ---------- subpage shell ---------- */
+  /* Smaller than the home hero on purpose: a service page is read, not
+     landed on cold, so the headline gives back vertical space to the copy. */
+  .phero{background:var(--petrol);color:var(--cream);padding:58px 0 0;overflow:hidden}
+  .phero-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+  .phero h1{font-size:clamp(31px,4.1vw,50px);margin-bottom:16px}
+  .phero .h1-sub{font-size:19px;max-width:34ch}
+  .phero .lede{margin-bottom:30px}
+  .phero-foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--rule-d);
+    font-size:13.5px;color:var(--cream-3);line-height:1.55;max-width:74ch}
+  .crumb{display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.07em;
+    text-transform:uppercase;font-weight:600;color:var(--cream-3);text-decoration:none;margin-bottom:20px}
+  .crumb:hover,.crumb:focus-visible{color:var(--amber)}
+
+  /* ---------- prose block ---------- */
+  /* Same 200px label gutter as .sec-head, so every band on every page
+     lines up on one vertical rule. */
+  .prose{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start}
+  .prose-body p{font-size:17.5px;color:var(--ink-2);line-height:1.62;margin:0 0 17px;max-width:70ch}
+  .prose-body p:last-child{margin-bottom:0}
+  .dark .prose-body p{color:var(--cream-2)}
+  .prose h2{margin-bottom:22px}
+
+  /* ---------- faq ---------- */
+  .faq{border-top:2px solid var(--petrol)}
+  .faq-item{display:grid;grid-template-columns:1fr 1.55fr;gap:44px;
+    padding:25px 0;border-bottom:1px solid var(--rule-l)}
+  .faq-item h3{font-size:18px;font-weight:600;letter-spacing:-.024em;margin:0;line-height:1.38}
+  .faq-item p{font-size:15.5px;color:var(--ink-2);margin:0;line-height:1.58}
+
+  /* ---------- related pages ---------- */
+  .rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(236px,1fr));
+    gap:1px;background:var(--rule-l);border:1px solid var(--rule-l)}
+  .rel a{background:#FBFAF6;border-top:2px solid var(--amber);padding:23px 22px;
+    text-decoration:none;display:flex;flex-direction:column;transition:background .16s}
+  .rel a:hover,.rel a:focus-visible{background:#fff}
+  .rel .t{font-size:17px;font-weight:600;letter-spacing:-.026em;margin-bottom:8px}
+  .rel .b{font-size:14.5px;color:var(--ink-3);line-height:1.46}
+  .rel .go{margin-top:14px;font-size:12px;letter-spacing:.06em;color:var(--amber-deep);font-weight:600}
+
+  /* ---------- case: figures table ---------- */
+  .figs{width:100%;border-collapse:collapse;font-size:15.5px;
+    border-top:1px solid var(--rule-d);border-bottom:1px solid var(--rule-d)}
+  .figs th{text-align:left;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    font-weight:600;color:var(--cream-3);padding:12px 14px;border-bottom:1px solid var(--rule-d)}
+  .figs th:not(:first-child),.figs td:not(:first-child){text-align:right;width:23%}
+  .figs td{padding:13px 14px;border-bottom:1px solid var(--rule-d);color:var(--cream-2)}
+  .figs tr:last-child td{border-bottom:none}
+  .figs .m{color:var(--cream)}
+  .figs .v{font-weight:600;color:#FCFAF4}
+  .figs .v.up{color:var(--amber)}
+  .figs .v.dn{color:var(--sage)}
+  .figs-foot{margin:14px 0 0;font-size:13.5px;color:var(--cream-3);line-height:1.5;max-width:76ch}
+
+  /* ---------- case card link ---------- */
+  .case-cta{display:inline-block;margin-top:15px;font-size:12.5px;letter-spacing:.04em;
+    font-weight:600;color:var(--amber);text-decoration:none}
+  .case-cta:hover,.case-cta:focus-visible{text-decoration:underline}
+
+  /* ---------- results index ---------- */
+  .rix{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
+    gap:1px;background:var(--rule-d);border:1px solid var(--rule-d)}
+  .rix a{background:var(--petrol-2);padding:26px;text-decoration:none;
+    display:flex;flex-direction:column;transition:background .16s}
+  .rix a:hover,.rix a:focus-visible{background:var(--petrol-3)}
+
+  @media (max-width:1000px){
+    .phero-grid{grid-template-columns:1fr;gap:34px}
+    .prose{grid-template-columns:1fr;gap:14px}
+    .faq-item{grid-template-columns:1fr;gap:12px}
+  }
+  @media (max-width:640px){
+    .figs{font-size:14px}
+    .figs th,.figs td{padding:10px 8px}
+  }
+
 /* SVG <text> sets font-family by attribute; map it onto the loaded face */
 svg text{font-family:var(--font-mono),"IBM Plex Mono",ui-monospace,monospace}

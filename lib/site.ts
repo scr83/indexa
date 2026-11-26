@@ -14,4 +14,7 @@ export const SITE = {
   country: 'RS',
 } as const;
 
-export const url = (path: string) => `${SITE.origin}${path === '/' ? '/' : path}`;
+/* No trailing slash, the root included, because Next normalises the head
+   tags that way under `trailingSlash: false` and a sitemap that disagreed
+   with the canonical would be two URL strings for one page. */
+export const url = (path: string) => (path === '/' ? SITE.origin : `${SITE.origin}${path}`);

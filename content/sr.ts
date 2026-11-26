@@ -21,7 +21,7 @@ export const sr: Content = {
   },
 
   banner:
-    'Pre objave — brojevi u studijama slučaja su stvarni i proverivi u Search Console-u. Panel sa AI odgovorima ispod je još uvek demonstracija sa izmišljenim brojevima (isprekidana linija) i mora biti zamenjen stvarnim podacima ili uklonjen. Srpski tekst takođe čeka pregled izvornog govornika.',
+    'Pre objave \u2014 svaka cifra u studijama slu\u010daja i panel sa AI odgovorima su stvarni: izvezeni iz Google Search Console-a, sa periodima pore\u0111enja iste du\u017eine. Izvr\u0161avanje i panel procesa nose ilustrativne vrednosti (isprekidana linija), koje pokazuju kako proces radi, a ne tvrde rezultat klijenta.',
 
   nav: {
     services: 'Usluge',
@@ -91,6 +91,7 @@ export const sr: Content = {
     bands: [
       {
         tier: '01 · minimum',
+        pageId: 'technical-seo',
         title: 'SEO osnove',
         note:
           'Uključeno u svaku saradnju. Urađeno kako treba, mereno pošteno, i nikada predstavljeno kao razlog da nekoga angažujete.',
@@ -138,6 +139,7 @@ export const sr: Content = {
         ],
       },
     ],
+    bandCta: 'Pročitajte više',
   },
 
   multilingual: {
@@ -261,6 +263,7 @@ export const sr: Content = {
       },
       {
         title: 'Vodimo vaš tim',
+        pageId: 'seo-consulting',
         who: 'Imate ljude, treba vam pravac',
         shape: 'STALNO · OBNAVLJA SE MESEČNO',
         barSelf: 28,
@@ -277,6 +280,7 @@ export const sr: Content = {
         unitPlaceholder: true,
       },
     ],
+    laneCta: 'Više o konsaltingu',
   },
 
   results: {
@@ -286,6 +290,7 @@ export const sr: Content = {
       '„+400% organskog saobraćaja“ nije rezultat. Četiristo posto od čega, u kom periodu, u poređenju sa kojom sezonom — to je rezultat. Svaka saradnja ispod pokazuje odakle je krenula.',
     cases: [
       {
+        id: 'case-saas',
         sector: 'B2B SaaS · Danska · više tržišta',
         from: '584K',
         to: '885K',
@@ -295,6 +300,7 @@ export const sr: Content = {
         spark: 'M0 40 L40 41 L72 39 L100 36 L128 28 L156 20 L188 11 L240 4',
       },
       {
+        id: 'case-legal',
         sector: 'Advokatska kancelarija · regulisana delatnost · Čile',
         from: '19,8',
         to: '8,5',
@@ -305,24 +311,32 @@ export const sr: Content = {
         spark: 'M0 6 L34 10 L62 9 L92 16 L124 22 L158 28 L198 33 L240 36',
       },
       {
+        id: 'case-food',
         sector: 'Hrana i nutricionizam · 6 tržišta · 95% izvoz',
         from: '0',
         to: '4',
         title: 'Prvi upiti iz pretrage za deset godina postojanja sajta',
         basis:
-          'Upiti preko sajta u prva tri meseca nakon preuređenja, naspram osnove od nula upita za deset godina na internetu. Upiti i dalje stižu. Prosečna pozicija 13,4 → 9; mesečne impresije 1.472 → 2.330.',
+          'Upiti preko sajta u prva tri meseca nakon preuređenja, naspram osnove od nula upita za deset godina na internetu. Upiti i dalje stižu. Prosečna pozicija 13,4 na početku, 4,7 danas; mesečne impresije 1.472 → 2.330.',
         spark: 'M0 44 L48 44 L96 43 L132 38 L166 28 L196 18 L220 10 L240 4',
       },
     ],
-    promptLabel: 'praćeni upit — ',
-    promptText: '„najbolji dobavljač za <kategoriju> u EU“',
-    promptTag: 'udeo odgovora koji citiraju klijenta · ',
-    fromWord: 'sa',
-    engines: [
-      { name: 'ChatGPT', share: '68%', prior: '11%', pct: 68 },
-      { name: 'Google AI Overviews', share: '52%', prior: '0%', pct: 52 },
-      { name: 'Perplexity', share: '81%', prior: '24%', pct: 81, sage: true },
-    ],
+    caseCta: 'Pročitajte ceo slučaj',
+    ai: {
+      sourceBold: 'Google Search Console',
+      source: ' \u2014 funkcije generativne veštačke inteligencije',
+      beta: 'BETA',
+      who: 'ista saradnja kao slučaj 01 · klijent anonimizovan',
+      stats: [
+        { big: '74.202', unit: 'impresije unutar Google AI odgovora, 25. maj \u2013 24. nov 2026.' },
+        { big: '180 \u2192 858', unit: 'dnevno, prvih trideset dana naspram poslednjih trideset' },
+        { big: '94,7%', unit: 'tih pojavljivanja izvan domaćeg tržišta klijenta, u 207 zemalja' },
+      ],
+      chartLabel:
+        'Dnevne impresije u Google funkcijama generativne veštačke inteligencije kroz 184 dana: oko 180 dnevno tokom leta, uz rast od kraja septembra do oko 858 dnevno krajem novembra.',
+      axis: ['25. maj', 'kraj septembra \u2014 prelom', '24. nov 2026.'],
+      foot: 'Search Console prikazuje pojavljivanja samo u Google AI pregledima i AI režimu \u2014 ne govori ništa o ChatGPT-u ili Perplexity-ju, pa ni ovaj grafik. Svaka tačka iznad je jedan dan izvezenih podataka iz Search Console-a, ne procena.',
+    },
   },
 
   tools: {
