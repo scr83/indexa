@@ -10,10 +10,10 @@ export const en: Content = {
   altPath: '/sr',
 
   meta: {
-    title: 'International SEO Consultant — Technical & Multilingual SEO | Indexa',
+    title: 'Technical SEO Consulting — Implemented, Not Recommended | Indexa',
     description:
-      'Technical and multilingual SEO across English, Spanish and Serbian. International SEO architecture, migrations and indexation, implemented in your codebase — not handed over as a list of findings.',
-    ogTitle: 'International SEO Consultant — Technical & Multilingual SEO',
+      'Technical SEO consulting that ends in applied changes rather than a list of findings. Indexation, canonicals, Core Web Vitals and migrations, across English, Spanish and Serbian.',
+    ogTitle: 'Technical SEO Consulting — Implemented, Not Recommended',
     ogDescription:
       'Technical and multilingual SEO across English, Spanish and Serbian, implemented in your codebase.',
     ogLocale: 'en',
@@ -32,8 +32,8 @@ export const en: Content = {
 
   hero: {
     kicker: 'EN / ES / SR · Belgrade',
-    h1: 'International SEO, built in code.',
-    sub: 'Technical and multilingual SEO consulting across English, Spanish and Serbian.',
+    h1: 'Technical SEO, implemented — not recommended.',
+    sub: 'International and multilingual SEO, in English, Spanish and Serbian.',
     lede:
       "Most search problems don't get solved by publishing more. They sit in how a site is built, how it handles different languages, and what Google and AI assistants can actually read from it. I find those problems with tools I built myself, and then I fix them — rather than sending you a report and wishing you luck.",
     ledeEmphasis: 'You deal with the person doing the work, start to finish.',

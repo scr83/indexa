@@ -33,28 +33,59 @@ export default function Scramble({ text, tick = 48, stagger = 1.25, className }:
 
     const words = text.split(' ');
     const chars: { node: HTMLSpanElement; real: string }[] = [];
+    const wordSpans: HTMLSpanElement[] = [];
 
+    /* Pass 1 — build the word boxes holding real, unsplit text, so each one
+       can be measured as the browser actually shapes it. */
     el.textContent = '';
     words.forEach((word, wi) => {
       const wrap = document.createElement('span');
       wrap.style.display = 'inline-block';
       wrap.style.whiteSpace = 'nowrap';
-      for (const ch of word) {
+      wrap.textContent = word;
+      el.appendChild(wrap);
+      wordSpans.push(wrap);
+      if (wi < words.length - 1) el.appendChild(document.createTextNode(' '));
+    });
+    const naturalWordWidths = wordSpans.map((w) => w.getBoundingClientRect().width);
+
+    /* Pass 2 — split each word into per-character cells. A random glyph is
+       wider than the letter it replaces, so each character needs its own
+       fixed-width box or the word grows mid-animation. */
+    const charsByWord: HTMLSpanElement[][] = [];
+    wordSpans.forEach((wrap, wi) => {
+      wrap.textContent = '';
+      const group: HTMLSpanElement[] = [];
+      for (const ch of words[wi]) {
         const c = document.createElement('span');
         c.textContent = ch;
         c.style.display = 'inline-block';
         c.style.textAlign = 'center';
         wrap.appendChild(c);
+        group.push(c);
         chars.push({ node: c, real: ch });
       }
-      el.appendChild(wrap);
-      if (wi < words.length - 1) el.appendChild(document.createTextNode(' '));
+      charsByWord.push(group);
     });
+    const charWidths = chars.map((c) => c.node.getBoundingClientRect().width);
 
-    // measure first, then freeze — two passes avoids layout thrash
-    const widths = chars.map((c) => c.node.getBoundingClientRect().width);
-    chars.forEach((c, i) => {
-      c.node.style.width = `${widths[i]}px`;
+    /* Pass 3 — freeze, scaled back to the word's natural width.
+       Per-character boxes lose the kerning and the letter-spacing that apply
+       *between* glyphs in a normal text run, so their widths sum to slightly
+       more than the word really occupies. Left uncorrected that pushed a word
+       onto a new line the moment the animation started: the headline went
+       from three lines to four, which is the exact layout shift the freezing
+       exists to prevent. Scaling each cell by natural/sum keeps the word box
+       identical to the unsplit text, so the line breaks cannot move. */
+    let k = 0;
+    charsByWord.forEach((group, wi) => {
+      const sum = group.reduce((acc, _, i) => acc + charWidths[k + i], 0);
+      const factor = sum > 0 ? naturalWordWidths[wi] / sum : 1;
+      group.forEach((node, i) => {
+        node.style.width = `${charWidths[k + i] * factor}px`;
+      });
+      wordSpans[wi].style.width = `${naturalWordWidths[wi]}px`;
+      k += group.length;
     });
 
     const settleAt = chars.map((_, i) => Math.round(i * stagger) + Math.floor(Math.random() * 6));

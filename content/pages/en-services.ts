@@ -10,17 +10,17 @@ import type { ServicePage } from '../types';
 const technicalSeo: ServicePage = {
   locale: 'en',
   meta: {
-    title: 'Technical SEO Consulting — Audits That Ship the Fix | Indexa',
+    title: 'Technical SEO Audit — Findings That Get Implemented | Indexa',
     description:
-      'Technical SEO consulting that ends in applied changes, not a findings document. Indexation, canonicals, Core Web Vitals, architecture and migrations, implemented in your codebase or handed over as a reviewed change set.',
-    ogTitle: 'Technical SEO Consulting — Audits That Ship the Fix',
+      'A technical SEO audit whose findings get implemented, not filed. Crawl and indexation diagnostics, canonical integrity, architecture, Core Web Vitals and migrations — applied in your codebase or handed over as a reviewed change set.',
+    ogTitle: 'Technical SEO Audit — Findings That Get Implemented',
     ogDescription:
       'Indexation, canonicals, Core Web Vitals and migrations — diagnosed and then actually implemented.',
   },
   kicker: '01 · technical SEO',
   name: 'Technical SEO',
-  h1: 'Technical SEO consulting that ships the fix.',
-  sub: 'Indexation, canonicals, architecture, Core Web Vitals and migrations — diagnosed, then applied.',
+  h1: 'A technical SEO audit that ends in a merged change.',
+  sub: 'Crawl, indexation, canonicals, architecture and Core Web Vitals — diagnosed in a week, then fixed.',
   lede: 'Most technical audits end at a spreadsheet of findings, and the findings sit there because nobody on either side owns the implementation.',
   ledeEmphasis: 'This one ends with the change applied and verified.',
   ctaPrimary: 'Scope an audit',
