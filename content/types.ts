@@ -183,7 +183,7 @@ export interface Content {
     caps: [string, string][];
   };
 
-  contact: { label: string; h2: string; body: string; email: string; linkedin: string };
+  contact: { label: string; h2: string; body: string; email: string; linkedin: string; copied: string };
 
   footer: { left: string; regNumber: string; email: string };
 }

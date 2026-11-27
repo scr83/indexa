@@ -1,5 +1,6 @@
 import type { Content } from '@/content/types';
 import { SITE } from '@/lib/site';
+import EmailLink from './EmailLink';
 
 /* Icons are inline SVG rather than a sprite or an icon font: two glyphs do
    not justify a request, and a font would land in the critical path for
@@ -31,7 +32,9 @@ export default function Footer({ c }: { c: Content }) {
         </span>
         <span className="foot-right">
           <span className="mono">
-            <a href={`mailto:${c.footer.email}`}>{c.footer.email}</a>
+            <EmailLink email={c.footer.email} copiedLabel={c.contact.copied}>
+              {c.footer.email}
+            </EmailLink>
           </span>
           <span className="foot-social">
             <a href={SITE.linkedinUrl} rel="noopener" aria-label="LinkedIn">

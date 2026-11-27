@@ -1,5 +1,6 @@
 import type { Content } from '@/content/types';
 import { SITE } from '@/lib/site';
+import EmailLink from './EmailLink';
 
 export default function Contact({ c }: { c: Content }) {
   return (
@@ -11,9 +12,13 @@ export default function Contact({ c }: { c: Content }) {
             <h2>{c.contact.h2}</h2>
             <p className="sub">{c.contact.body}</p>
             <div className="cta-row" style={{ marginTop: 32 }}>
-              <a className="btn btn-amber" href={`mailto:${c.contact.email}`}>
+              <EmailLink
+                className="btn btn-amber"
+                email={c.contact.email}
+                copiedLabel={c.contact.copied}
+              >
                 {c.contact.email}
-              </a>
+              </EmailLink>
               <a className="btn btn-oncream" href={SITE.linkedinUrl} rel="noopener">
                 {c.contact.linkedin}
               </a>

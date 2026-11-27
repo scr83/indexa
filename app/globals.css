@@ -359,6 +359,19 @@
 }
 @media (max-width:1000px){ .ai-grid{grid-template-columns:1fr} .ai-stat{border-right:none;border-bottom:1px solid var(--rule-d)} }
 
+  /* ---------- copied-to-clipboard feedback ---------- */
+  /* Reserves no space until it fires, so nothing on the page moves when it
+     appears — the confirmation must not itself cause a layout shift. */
+  .email-link{position:relative;display:inline-flex}
+  /* Absolutely positioned: the confirmation must never move what is beside
+     it. Sits under the link, where there is always clearance, rather than to
+     the right, where the next button is. */
+  .copied{position:absolute;top:calc(100% + 7px);left:0;font-size:12px;letter-spacing:.04em;
+    color:var(--sage-deep);opacity:0;transform:translateY(2px);
+    transition:opacity .18s,transform .18s;pointer-events:none;white-space:nowrap}
+  .copied[data-on]{opacity:1;transform:none}
+  .dark .copied,footer .copied,.close .copied{color:var(--sage)}
+
   /* ---------- grid shrink floors ---------- */
   /* A grid item defaults to min-width:auto, so one unbreakable string sets a
      floor under its whole track and pushes the page into horizontal scroll.

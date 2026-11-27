@@ -110,6 +110,20 @@ const note = (ok, msg) => { if (!ok) fail.push(msg); };
     const icon = await page.getAttribute('link[rel=icon]', 'href').catch(() => null);
     note(!!icon, `${route}: no favicon declared`);
 
+    /* Every mailto needs its clipboard fallback. A bare mailto does nothing
+       at all on a device with no mail client registered — no error, no
+       prompt — so the site's main call to action fails in silence. */
+    const mailtos = await page.$$eval('a[href^="mailto:"]', (as) =>
+      as.map((a) => ({
+        href: a.getAttribute('href'),
+        wrapped: !!a.closest('.email-link'),
+        hasStatus: !!a.closest('.email-link')?.querySelector('[role="status"]'),
+      })),
+    );
+    note(mailtos.length > 0, `${route}: no mailto link at all`);
+    const bare = mailtos.filter((m) => !m.wrapped || !m.hasStatus);
+    note(bare.length === 0, `${route}: ${bare.length} mailto link(s) with no clipboard fallback`);
+
     // JSON-LD
     const blocks = await page.$$eval('script[type="application/ld+json"]', (ss) => ss.map((s) => s.textContent));
     note(blocks.length === 1, `${route}: expected 1 JSON-LD block, got ${blocks.length}`);

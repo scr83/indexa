@@ -365,6 +365,7 @@ export const en: Content = {
       "You'll get an honest read on whether it's a technical problem, a content problem, a competitive problem, or not a problem worth solving. If it's the last one I'll say so — that answer costs you nothing and saves us both a proposal.",
     email: 'hello@indexaseo.dev',
     linkedin: 'LinkedIn',
+    copied: 'Address copied',
   },
 
   footer: {

@@ -370,6 +370,7 @@ export const sr: Content = {
       'Dobićete iskrenu procenu da li je u pitanju tehnički problem, problem sadržaja, problem konkurencije ili problem koji ne vredi rešavati. Ako je ovo poslednje, reći ću vam — taj odgovor vas ne košta ništa i obojici štedi jednu ponudu.',
     email: 'hello@indexaseo.dev',
     linkedin: 'LinkedIn',
+    copied: 'Adresa kopirana',
   },
 
   footer: {
