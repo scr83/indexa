@@ -220,6 +220,13 @@
   .lane .unit{font-size:13px;color:var(--ink-3)}
 
   /* ---------- results ---------- */
+  /* The grid paints its own background and 1px gaps, so leftover width is
+     not whitespace — it renders as a filled rectangle. Six pages show one or
+     two cases rather than three, and every one of them painted a hole.
+     auto-fit alone does not solve it: empty tracks collapse but the
+     container keeps its full width and paints anyway. The component sets the
+     column count and width:fit-content when there are fewer than three, so
+     the container ends where the cards end. */
   .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule-d);border:1px solid var(--rule-d)}
   .case{background:var(--petrol-2);padding:26px}
   .case .sector{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--cream-3);margin:0 0 20px;font-weight:600}

@@ -18,8 +18,16 @@ export default function CaseCards({
   cta: string;
   locale: Locale;
 }) {
+  /* Fewer than three cards: size the track explicitly and let the container
+     shrink to it, so no background is painted past the last card. */
+  const n = cases.length;
+  const fit =
+    n < 3
+      ? { gridTemplateColumns: `repeat(${n}, minmax(0, 420px))`, width: 'fit-content' as const }
+      : undefined;
+
   return (
-    <div className="cases">
+    <div className="cases" style={fit}>
       {cases.map((cs) => {
         const stroke = cs.inverted ? SAGE : AMBER;
         return (
