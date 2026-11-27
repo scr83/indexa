@@ -408,15 +408,25 @@ const programmaticSeo: ServicePage = {
     paras: [
       'The template and data binding are built and handed over as code. The rules that decide which combinations get a page — and which are excluded for being thin — are part of the deliverable and explicit, because they are the thing that will need tuning once real data arrives.',
       'Indexation is controlled from the start rather than cleaned up later. That means the generated set is released in tranches with coverage monitored between them, so a problem shows up at a hundred pages rather than at two thousand.',
-      'This is also the service where our own product is the reference implementation. Reportr\'s comparison and category pages are generated this way, which means the approach is one we run against our own domain rather than only recommend.',
     ],
   },
+  /* Deliberately empty, and it should stay empty until there is a client
+     engagement that actually used generated pages. The band renders only
+     when caseIds has entries.
+
+     The obvious filler was our own product: Reportr runs several generated
+     sets. Six months of Search Console says 33 generated URLs took 174,968
+     impressions and 4 clicks, with the largest set — fifteen white-label
+     pages — on 95,965 impressions, zero clicks and an average position of
+     55.6. That is the failure mode this page describes, not evidence for
+     the service, and dressing it up as proof is the exact move the rest of
+     the site exists to argue against. The page stands on the go/no-go
+     reasoning instead. */
   proof: {
     label: 'proof',
-    h2: 'Where this has been done.',
-    intro:
-      'Applied to our own product first. The client engagements below used the surrounding technical work rather than generated pages.',
-    caseIds: ['case-saas'],
+    h2: '',
+    intro: '',
+    caseIds: [],
   },
   faq: {
     label: 'questions',
